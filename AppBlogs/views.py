@@ -9,12 +9,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from AppBlogs.models import Articles
 
 
-class ArticlesListView(LoginRequiredMixin, ListView):
+class ArticlesListView(ListView):
     model = Articles
     template_name = 'AppBlogs/list_articless.html'
 
 
-class ArticlesCreateView(LoginRequiredMixin, CreateView):
+class ArticlesCreateView( CreateView):
     model = Articles
     fields = ('title', 'subTitle', 'body', 'author')
     success_url = reverse_lazy('list_articless')
@@ -28,19 +28,21 @@ class ArticlesCreateView(LoginRequiredMixin, CreateView):
         self.object.save()
         return super().form_valid(form)
 
-
 class ArticlesDetailView(LoginRequiredMixin, DetailView):
     model = Articles
     success_url = reverse_lazy('list_articless')
+ 
 
 
-class ArticlesUpdateView(LoginRequiredMixin, UpdateView):
+
+
+class ArticlesUpdateView( UpdateView):
     model = Articles
     fields = ('title', 'subTitle', 'body', 'author')
     success_url = reverse_lazy('list_articless')
 
 
-class ArticlesDeleteView(LoginRequiredMixin, DeleteView):
+class ArticlesDeleteView( DeleteView):
     model = Articles
     success_url = reverse_lazy('list_articless')
 

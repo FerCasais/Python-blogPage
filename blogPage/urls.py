@@ -34,3 +34,4 @@ urlpatterns = [
     path("", saludar_con_html, name="inicio"),
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
