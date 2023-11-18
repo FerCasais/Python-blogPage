@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title>Articles List</title>
+{% endblock titulo %}
+
+{% block contenido %}
+<h3>Articles List</h3>
+<a href="{% url 'create_articles' %}">Crear Nuevo Blog</a>
+<br>
+
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>title</th>
+      <th>Subtitle</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for article in object_list %}
+    <tr>
+      <td>{{ article.id }}</td>
+      <td>{{ article.title }}</td>
+      <td>{{ article.subTitle }}</td>
+      <td>
+        <a href="{% url 'ver_articles' article.id %}">Ver</a>
+      </td>
+      <td>
+        <a href="{% url 'edit_articles' article.id %}">Editar</a>
+      </td>
+      <td>
+        <a href="{% url 'delete_articles' article.id %}">
+          <i class="bi bi-trash"></i>
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock contenido %}

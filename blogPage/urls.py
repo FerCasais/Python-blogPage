@@ -25,7 +25,8 @@ from blogPage.views import saludar_con_html
 # Son las URLS generales del proyecto
 urlpatterns = [
     path("admin/", admin.site.urls),
-  
+    path("blogs/", include("AppBlogs.urls")),
+    path("perfiles/", include("perfiles.urls")),
 
     # Aqui agregar mis URLS
     # path(RUTA, VIEW)
@@ -33,5 +34,3 @@ urlpatterns = [
     path("", saludar_con_html, name="inicio"),
 ]
 
-# Agregamos esto al final, para incluir los archivos media: imagenes, etc
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
