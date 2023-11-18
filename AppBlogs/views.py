@@ -14,7 +14,7 @@ class ArticlesListView(ListView):
     template_name = 'AppBlogs/list_articless.html'
 
 
-class ArticlesCreateView( CreateView):
+class ArticlesCreateView(LoginRequiredMixin, CreateView):
     model = Articles
     fields = ('title', 'subTitle', 'body', 'author')
     success_url = reverse_lazy('list_articless')
@@ -28,21 +28,38 @@ class ArticlesCreateView( CreateView):
         self.object.save()
         return super().form_valid(form)
 
-class ArticlesDetailView(LoginRequiredMixin, DetailView):
+class ArticlesDetailView( DetailView):
     model = Articles
     success_url = reverse_lazy('list_articless')
  
-
-
-
-
-class ArticlesUpdateView( UpdateView):
+class ArticlesUpdateView(LoginRequiredMixin, UpdateView):
     model = Articles
     fields = ('title', 'subTitle', 'body', 'author')
     success_url = reverse_lazy('list_articless')
 
-
-class ArticlesDeleteView( DeleteView):
+class ArticlesDeleteView(LoginRequiredMixin, DeleteView):
     model = Articles
     success_url = reverse_lazy('list_articless')
+
+def about(request):
+    contexto = {
+           
+    }
+    http_response = render(
+        request=request,
+        template_name="about.html",
+        context=contexto,
+    )
+    return http_response
+
+def create(request):
+    contexto = {
+           
+    }
+    http_response = render(
+        request=request,
+        template_name="create.html",
+        context=contexto,
+    )
+    return http_response
 

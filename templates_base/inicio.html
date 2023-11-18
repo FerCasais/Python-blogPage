@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
 {% block titulo %}
-<title>Coderhouse 47780 - Inicio</title>
+<title>Home</title>
 {% endblock titulo %}
 
 
 {% block contenido %}
 {% if user.is_authenticated %}
-<h1>Bienvenido/a {{ user.last_name }}, {{ user.first_name }}</h1>
+<h1>Bienvenidx {{ user.last_name }}, {{ user.first_name }}</h1>
 <div>
   <img src="{{ user.avatar.imagen.url }}" style="max-width: 300px;">
 </div>
 {% else %}
-<h1>Bienvenido/a visitante</h1>
+<h1>Bienvenidos a MyBlog</h1>
 {% endif %}
 {% endblock contenido %}

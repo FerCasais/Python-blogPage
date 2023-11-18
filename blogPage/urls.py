@@ -32,6 +32,7 @@ urlpatterns = [
     # path(RUTA, VIEW)
     # La RUTA de la URL puede ser diferente al nombre de la view
     path("", saludar_con_html, name="inicio"),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
