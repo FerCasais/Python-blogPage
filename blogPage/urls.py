@@ -21,6 +21,10 @@ from django.conf.urls.static import static
 
 from blogPage.views import saludar_con_html
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 
 # Son las URLS generales del proyecto
 urlpatterns = [
@@ -36,4 +40,7 @@ urlpatterns = [
     
 ]
 
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

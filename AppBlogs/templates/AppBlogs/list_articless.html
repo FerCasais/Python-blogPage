@@ -21,13 +21,18 @@
       <th>Image</th>
     </tr>
     {% for article in object_list %}
+    
     <tr>
       <td>{{ article.id }}</td>
       <td>{{ article.title }}</td>
       <td>{{ article.subTitle }}</td>
       <td>{{ article.author }}</td>
       <td>{{ article.date }}</td>
-      <td>{{ article.image }}</td>
+      <td>
+        {% if article.image %}
+      <img src="{{ article.image.url}}" width = "200" height ="200">
+       {% endif %}
+      </td>
       <td>
         <a href="{% url 'ver_articles' article.id %}">Ver</a>
       </td>
