@@ -12,7 +12,6 @@ def saludar(request):
    return pagina_html
 
 
-
 def saludar_con_html(request):
     contexto = {}
     http_response = render(
