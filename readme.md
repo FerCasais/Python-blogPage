@@ -25,4 +25,6 @@ python manage.py createsuperuser
 
 
 # Usuarios normales
+username = Asado
+login = mollejas123
 

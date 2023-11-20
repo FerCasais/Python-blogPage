@@ -16,17 +16,21 @@ class ArticlesListView(ListView):
 
 class ArticlesCreateView(LoginRequiredMixin, CreateView):
     model = Articles
-    fields = ('title', 'subTitle', 'body', 'author')
-    success_url = reverse_lazy('list_articless')
-
+    fields = ('title', 'subTitle', 'body', 'author', 'date', 'image')
+    success_url = reverse_lazy('list_articless') 
+   
+   
     # Así se guarda la info del creador en vistas basadas en clase
     def form_valid(self, form):
-        """If the form is valid, save the associated model."""
+    
         self.object = form.save()
         # Agregamos la información del creador
         self.object.creador = self.request.user
         self.object.save()
+              
+              
         return super().form_valid(form)
+    
 
 class ArticlesDetailView( DetailView):
     model = Articles
@@ -34,7 +38,7 @@ class ArticlesDetailView( DetailView):
  
 class ArticlesUpdateView(LoginRequiredMixin, UpdateView):
     model = Articles
-    fields = ('title', 'subTitle', 'body', 'author')
+    fields = ('title', 'subTitle', 'body', 'author', 'date', 'image')
     success_url = reverse_lazy('list_articless')
 
 class ArticlesDeleteView(LoginRequiredMixin, DeleteView):
