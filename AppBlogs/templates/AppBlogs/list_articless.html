@@ -9,7 +9,7 @@
 <a href="{% url 'create_articles' %}">Crear Nuevo Blog</a>
 <br>
 
-
+ {% if object_list %}
 <table class="table">
   <tbody>
     <tr>
@@ -20,8 +20,10 @@
       <th>Date</th>
       <th>Image</th>
     </tr>
+   
     {% for article in object_list %}
-    
+
+ 
     <tr>
       <td>{{ article.id }}</td>
       <td>{{ article.title }}</td>
@@ -46,6 +48,10 @@
       </td>
     </tr>
     {% endfor %}
+    {% else %}
+    <br />
+    <h2 style="color: red">No articles now!</h2>
+    {% endif %}
   </tbody>
 </table>
 {% endblock contenido %}
