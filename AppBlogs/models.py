@@ -13,7 +13,8 @@ class Articles(models.Model):
     body = models.CharField(max_length=256)
     author = models.CharField(max_length=20, blank=True, null=True)
     date = models.DateTimeField(default=datetime.now)
-    image = models.ImageField(max_length=300, upload_to="blogImages", null= True)
+    image = models.ImageField(max_length=300, upload_to="blogImages", null=True, blank=True)
+   
     
     creador = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 

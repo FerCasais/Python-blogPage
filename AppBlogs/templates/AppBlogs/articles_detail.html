@@ -2,20 +2,24 @@
 
 {% block contenido %}
 
-<p>
+<h3 style='color: red'>
   <strong>Title:</strong> {{object.title}}
-</p>
-<p>
+</h3>
+<h4 style='color: blue'>
   <strong>Subtitle:</strong> {{object.subTitle}}
+</h4>
+  <p>
+    <img src="{{ object.image.url}}" width = "600" >
+</p>
+
+<p>
+  <strong>Blog:</strong> {{object.body}}
 </p>
 <p>
-  <strong>Body:</strong> {{object.body}}
+  <strong>Author:</strong> {{object.author}}
 </p>
 <p>
-  <strong>Date:</strong> {{object.author}}
-</p>
-<p>
-  <strong>Author:</strong> {{object.date}}
+  <strong>Date of issue:</strong> {{object.date}}
 </p>
 
 <br>
