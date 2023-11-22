@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'AppBlogs',
     'perfiles',
+    'chat',
+ 
+    
+   
  
     
 ]

@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 from blogPage.views import saludar_con_html
 
 
+
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -32,12 +33,14 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("blogs/", include("AppBlogs.urls")),
     path("perfiles/", include("perfiles.urls")),
+    path('', include('chat.urls')),
 
 
     # Aqui agregar mis URLS
     # path(RUTA, VIEW)
     # La RUTA de la URL puede ser diferente al nombre de la view
     path("", saludar_con_html, name="inicio"),
+  
    
     
 ]
