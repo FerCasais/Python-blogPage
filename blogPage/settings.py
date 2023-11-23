@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'AppBlogs',
     'perfiles',
     'chat',
+    'ckeditor',
  
     
    
@@ -137,3 +138,34 @@ LOGIN_URL = 'login'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Path where media is stored
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'height':'500px',
+        # tab key conversion space number
+        'tabSpaces': 4,
+        # Toolbar Style
+        'toolbar': 'Custom',
+        # Toolbar buttons
+        'toolbar_Custom': [
+            ['Format'],
+            ['Smiley', 'CodeSnippet'], 
+            ['Bold', 'Italic', 'Underline', 'RemoveFormat', 'Blockquote'],
+            ['TextColor', 'BGColor'],
+            ['Link', 'Unlink'],
+            ['NumberedList', 'BulletedList'],
+            ['Maximize']
+        ],
+        # Add Code Block Plug-ins
+        'extraPlugins': ','.join(['codesnippet']),
+        'codeSnippet_languages': {
+            'bash': 'Bash',
+            'css': 'CSS',
+            'django': 'Django',
+            'html': 'HTML',
+            'javascript': 'JavaScript',
+            'php': 'PHP',
+            'python': 'Python',
+        }
+    }
+}
