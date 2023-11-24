@@ -1,11 +1,14 @@
 
 
 {% extends "base.html" %}
+
+
 <style>
   body {
     margin: 0 auto;
     max-width: 800px;
     padding: 0 20px;
+    background-color: #ddd;
   }
   
   .container {
@@ -52,13 +55,35 @@
   }
   </style>
 
+
+
 {% block contenido %}
+
+<div class="text-danger bg-secondary">
+
+<h1 class="d-flex justify-content-center text-light">Bienvenidos a MyBlog</h1>
+{% if user.is_authenticated %}
+
+<div class="d-flex justify-content-center">
+  
+ <h2>Welcome: " {{ user.last_name }}, {{ user.first_name }} " </h2>
+</div>
+<div class="d-flex justify-content-around">
+  <img src="https://www.creativefabrica.com/wp-content/uploads/2021/08/04/Blog-Page-Design-kit-Template-Graphics-15459597-1-580x386.png" style="width: 30%"/>
+  <img src="{{ user.avatar.imagen.url }}" style="width: 50%;">
+  
+
+
+
 
 <body >
 
-  <div align="center">
-      <h2>My Blog Chat</h2>
-  </div>
+  
+
+ 
+ 
+
+
   
   
   <div class="container w-25 p-3">
@@ -93,19 +118,31 @@
       background-color: #f2f2f2;
       padding: 20px;
       }
+      
       </style>
-  
+      <div align="center">
+        <h2>My Blog Chat</h2>
+    </div>
       <form id="post-form" method="POST" action="checkview">
           {% csrf_token %}
-          <label>Room Name</label>
+          <label>Enter a Room or create a new one</label>
           <input type="text" name="room_name" id="room_name" width="100px" />
-          <label>Username</label>
+          <label>Your nickname</label>
           <input type="text" name="username" id="username" width="100px" />
+
+       
+        
           <input type="submit" value="Enter Room">
       </form>
   </div>
   
   
   </body>
+</div>
+{% else %}
+
+{% endif %}
+
+</div>
 
 {% endblock contenido %}
