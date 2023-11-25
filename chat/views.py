@@ -5,7 +5,7 @@ from django.http import HttpResponse, JsonResponse
 
 
 # Create your views here.
-@login_required
+
 def home(request):
     return render(request, 'home.html')
 

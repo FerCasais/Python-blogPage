@@ -3,70 +3,21 @@
 {% extends "base.html" %}
 
 
-<style>
-  body {
-    margin: 0 auto;
-    max-width: 800px;
-    padding: 0 20px;
-    background-color: #ddd;
-  }
-  
-  .container {
-    border: 2px solid #dedede;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-  }
-  
-  .darker {
-    border-color: #ccc;
-    background-color: #ddd;
-  }
-  
-  .container::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  
-  .container img {
-    float: left;
-    max-width: 60px;
-    width: 100%;
-    margin-right: 20px;
-    border-radius: 50%;
-  }
-  
-  .container img.right {
-    float: right;
-    margin-left: 20px;
-    margin-right:0;
-  }
-  
-  .time-right {
-    float: right;
-    color: #aaa;
-  }
-  
-  .time-left {
-    float: left;
-    color: #999;
-  }
-  </style>
-
-
-
 {% block contenido %}
 
-<div class="text-danger bg-secondary">
 
-<h1 class="d-flex justify-content-center text-light">Bienvenidos a MyBlog</h1>
+
+<div class="text-dark bg-info">
+
+<h1 class="d-flex justify-content-around text-light">Bienvenidos a MyBlog</h1>
 {% if user.is_authenticated %}
+
+
+
 
 <div class="d-flex justify-content-center">
   
- <h2>Welcome: " {{ user.last_name }}, {{ user.first_name }} " </h2>
+ <h2>Welcome: " {{ user.first_name }}, {{ user.last_name }} " </h2>
 </div>
 
 <div class="d-flex justify-content-around">
@@ -84,29 +35,17 @@
       {% csrf_token %}
       <label>Enter a Room or create a new one</label>
       <input type="text" name="room_name" id="room_name" width="100px" />
-      <label>go!!</label>
-      <input  name="username" id="username"  class="bg-danger"/> 
+     
+     <label> go!!<input  name="username" id="username"  class="bg-dark"/> </label>
 
-   
-    
       <input type="submit" value="Enter Room">
   </form>
 </div>
   </div>
-
-
-
-
-<body >
-
   
 
- 
- 
 
 
-  
-  
   <div class="container w-15 p-3">
       <style>
       input[type=text], select {
@@ -121,7 +60,7 @@
   
       input[type=submit] {
       width: 100%;
-      background-color: #4CAF50;
+      background-color: blue;
       color: white;
       padding: 14px 20px;
       margin: 8px 0;
@@ -133,37 +72,13 @@
       input[type=submit]:hover {
       background-color: #45a049;
       }
+    </style>
   
-      div {
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      padding: 20px;
-      }
-      
-      {% comment %} </style>
-      <div align="center">
-        <h2>My Blog Chat</h2>
-    </div>
-      <form id="post-form" method="POST" action="checkview">
-          {% csrf_token %}
-          <label>Enter a Room or create a new one</label>
-          <input type="text" name="room_name" id="room_name" width="100px" />
-          <label>go!!</label>
-          <input  name="username" id="username"  class="bg-danger"/> 
-
-       
-        
-          <input type="submit" value="Enter Room">
-      </form>
-  </div>
-  
-  
-  </body>
-</div> {% endcomment %}
+</div>
 {% else %}
 
 {% endif %}
 
-</div>
+
 
 {% endblock contenido %}

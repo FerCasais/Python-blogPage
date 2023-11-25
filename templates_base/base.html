@@ -27,8 +27,8 @@
             
                 <a class="navbar-brand" href="{% url 'about'%}">About </a>
                 <a class="navbar-brand" href="{% url 'list_articless' %}">Blogs List</a>
-                <a class="navbar-brand "href="{% url 'create_articles'%}" >Create your own Blog</a>
-                <a class="navbar-brand"href="{% url 'home'%}" >Chat Rooms</a>
+                <a class="navbar-brand "href="{% url 'create_articles'%}" >Create your own Blog(registrate)</a>
+                <a class="navbar-brand"href="{% url 'home'%}" >Chat Rooms(registrate)</a>
               
               
                
@@ -36,7 +36,7 @@
             
                 {% if user.is_authenticated %}
                 <div class="dropdown ">
-                    <button class="btn btn-secondary dropdown-toggle text-danger bg-secondary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle text-dark bg-primary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         <div style="display: inline-flex;">
                             <img src="{{user.avatar.imagen.url}}" style="max-width:40px;margin-right: 10px;">
                             <h6><span>{{ user.username }}</span></h6>
