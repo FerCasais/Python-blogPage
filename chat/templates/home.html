@@ -68,10 +68,31 @@
   
  <h2>Welcome: " {{ user.last_name }}, {{ user.first_name }} " </h2>
 </div>
+
 <div class="d-flex justify-content-around">
-  <img src="https://www.creativefabrica.com/wp-content/uploads/2021/08/04/Blog-Page-Design-kit-Template-Graphics-15459597-1-580x386.png" style="width: 30%"/>
-  <img src="{{ user.avatar.imagen.url }}" style="width: 35%;">
-  
+ <div>
+  <h2>Create your blog</h2>
+  <img src="https://www.creativefabrica.com/wp-content/uploads/2021/08/04/Blog-Page-Design-kit-Template-Graphics-15459597-1-580x386.png" style="width: 55%"/>
+</div>
+<div class="w-50 p-3">
+   <img src="{{ user.avatar.imagen.url }}" style="width: 35%;">
+</div>
+<div align="center" class="w-25 p-3" >
+    <h2>My Blog Chat</h2>
+
+  <form id="post-form" method="POST" action="checkview">
+      {% csrf_token %}
+      <label>Enter a Room or create a new one</label>
+      <input type="text" name="room_name" id="room_name" width="100px" />
+      <label>go!!</label>
+      <input  name="username" id="username"  class="bg-danger"/> 
+
+   
+    
+      <input type="submit" value="Enter Room">
+  </form>
+</div>
+  </div>
 
 
 
@@ -86,7 +107,7 @@
 
   
   
-  <div class="container w-25 p-3">
+  <div class="container w-15 p-3">
       <style>
       input[type=text], select {
       width: 100%;
@@ -119,7 +140,7 @@
       padding: 20px;
       }
       
-      </style>
+      {% comment %} </style>
       <div align="center">
         <h2>My Blog Chat</h2>
     </div>
@@ -138,7 +159,7 @@
   
   
   </body>
-</div>
+</div> {% endcomment %}
 {% else %}
 
 {% endif %}

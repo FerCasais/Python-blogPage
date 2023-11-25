@@ -113,11 +113,15 @@ body {
 
 {% block contenido %}
 
-<body >
-  
-  <h2>{{room}} My Blog Chat</h2>
+<body  >
   <h2><a class="navbar-brand" href="{% url 'inicio' %}">Back to Home</a></h2>
+ <div class="d-flex justify-content-center">
+ 
+  <div class="w-50 p-3 ">
+ 
+  <h2>Room: {{room}} </h2>
   
+    
   <div id="display" >
   
   
@@ -147,7 +151,7 @@ body {
   })
   </script>
   
-  
+ 
   <div  >
       <style>
       input[type=text], select {
@@ -189,8 +193,8 @@ body {
           <input type="text" name="message" id="message" width="100px" />
           <input type="submit" value="Send">
       </form>
-  </div>
-  
+  </div> </div>
+</div>
   
   </body>
   
