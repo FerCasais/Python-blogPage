@@ -30,3 +30,6 @@ login = adm123456
 username = Asado
 login = mollejas123
 
+username = Batata
+login = membrillo123
+

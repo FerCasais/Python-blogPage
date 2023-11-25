@@ -1,7 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from chat.models import Room, Message
 from django.http import HttpResponse, JsonResponse
-from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 @login_required
@@ -22,7 +23,7 @@ def checkview(request):
     room = request.POST['room_name']
     username = request.POST['username']
 
-    if room == '' or username == '':
+    if room == '' :
         return redirect ('/wrong_room')
 
     if Room.objects.filter(name=room).exists():
@@ -34,7 +35,7 @@ def checkview(request):
 @login_required
 def send(request):
     message = request.POST['message']
-    username = request.POST['username']
+    username = request.user
     room_id = request.POST['room_id']
 
     new_message = Message.objects.create(value=message, user=username, room=room_id)
