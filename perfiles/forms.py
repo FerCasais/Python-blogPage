@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 
 from perfiles.models import Avatar
 
-
 class UserRegisterForm(UserCreationForm):
     
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)

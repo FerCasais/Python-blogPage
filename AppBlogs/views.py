@@ -20,11 +20,11 @@ class ArticlesCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('list_articless') 
    
    
-    # Así se guarda la info del creador en vistas basadas en clase
+   
     def form_valid(self, form):
     
         self.object = form.save()
-        # Agregamos la información del creador
+       
         self.object.creador = self.request.user
         self.object.save()
               
